@@ -1,0 +1,15 @@
+用call和apply实现继承：
+function pet(words){
+  this.words=words;
+  this.speak=function(){
+    console.log(this.words);
+  }
+}
+
+function Dog(words){
+  //这样就让dog继承了pet的属性和方法
+  pet.call(this,words);
+  //pet.apply(this,arguments);
+}
+var dog =new Dog('wang');
+dog.speak();
